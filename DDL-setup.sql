@@ -1,33 +1,86 @@
 create table User(
     UserID int Primary key,
+    name char(40),
     Email char(64)
+)
+
+-- Profile characteristics table
+create table profileChars(
+    Id int Primary key,
+    dimension char(30),
+    characteristics char(30),
+    descrp char(200)
+)
+
+create table Survey (
+    SurveyID int Primary Key,
+    shortName char(30),
+    name char(60),
+    Description varchar(150)
+)
+
+create table Questions (
+    Survey int,
+    QuestionId int Primary Key,
+    question varchar(100),
+    qtype int,
+    profChar char(50),
+    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
+    FOREIGN key qtype REFERENCES questionType(Id),
+    FOREIGN key profChar REFERENCES profileChars(characteristics)
+)
+create table questionType(
+    Id int Primary key
+)
+
+create table Possibilities (
+    qtype int,
+    survey int,
+    QuestionNo int,
+    ResponseID int,
+    TextPrompt varchar(100),
+    Primary key (survey, QuestionNo, ResponseID),
+    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionNo),
+    FOREIGN key qtype REFERENCES questionType(Id),
+    FOREIGN key survey REFERENCES Survey(SurveyID)
+)
+
+create table charValue(
+    profileId int,
+    charId int,
+    charVal int,
+    importance int,
+    Primary key(profileId, charId),
+    FOREIGN KEY surveyId REFERENCES Survey(SurveyID),
+    FOREIGN KEY charId REFERENCES profileChars(Id)
 )
 
 create table UREProfiles(
     ProfileID int Primary key,
     Characteristics char(32),
-    Job char(32),
-    Survey int,
-    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID)
+    value float,
+    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID),
+    FOREIGN key Characteristics REFERENCES profileChars(characteristics)
 )
 
 create table ProfProfiles(
     ProfileID int Primary key,
     Status char(32),
     Characteristics char(32),
-    Qualifer char(32),
-    Experience char(32),
-    Survey int,
-    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID)
+    value float,
+    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID),
+    FOREIGN key Characteristics REFERENCES profileChars(characteristics)
 )
 
 create table DesProfiles (
     ProfileID int Primary key,
     Characteristics char(32),
     User int,
-    Ranking int,
+    Value int,
     Importance int,
-    FOREIGN KEY (User) REFERENCES Users(UserID)
+    FOREIGN KEY (User) REFERENCES Users(UserID),
+    FOREIGN key Characteristics REFERENCES profileChars(characteristics),
+    FOREIGN key user REFERENCES Users(UserId)
 )
 
 create table OnetProfiles (
@@ -62,39 +115,6 @@ create table SurveyResponse (
 create table Responses (
     SurvResp int,
     QuestionNo int,
-    Answer varchar(100)
+    Answer varchar(100),
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp)
-)
-
-create table Survey (
-    SurveyID int Primary Key,
-    Description varchar(100),
-)
-
-create table Questions (
-    QuestionNo int Primary Key,
-    TextPrompt varchar(100),
-    Survey int,
-    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID)
-)
-
-create table Possibilities (
-    ResponseID int Primary Key,
-    QuestionNo int,
-    TextPrompt varchar(100)
-    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionNo)
-)
-
-create table Dimensions (
-    DID int Primary Key,
-    Name varchar(32),
-    Description varchar(100)
-)
-
-create table ProfDimensions (
-    Dimension int,
-    Value int,
-    Importance int,
-    FOREIGN KEY (Dimension) REFERENCES Dimensions(DID),
-    UNIQUE (Dimension, Value, Importance)
 )
