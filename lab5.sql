@@ -77,18 +77,89 @@ insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) va
 insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 5, 3, "Computer-based research");
 insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 5, 4, "prefer not to say");
 
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 6);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 11);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 3);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 4);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 5);
-insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 6);
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 6, 1, "Laboratory research");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 6, 2, "Field research");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 6, 3, "Computer-based research");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 6, 4, "prefer not to say");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 1, "0 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 2, "1 - 5 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 3, "6 - 10 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 4, "11 - 15 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 5, "16 - 20 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 6, "21 - 25 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 7, "26 - 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 8, "more than 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 7, 9, "Prefer not to say");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 1, "0 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 2, "1 - 5 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 3, "6 - 10 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 4, "11 - 15 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 5, "16 - 20 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 6, "21 - 25 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 7, "26 - 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 8, "more than 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 8, 9, "Prefer not to say");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 1, "0 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 2, "1 - 5 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 3, "6 - 10 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 4, "11 - 15 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 5, "16 - 20 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 6, "21 - 25 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 7, "26 - 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 8, "more than 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 9, 9, "Prefer not to say");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 1, "0 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 2, "1 - 5 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 3, "6 - 10 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 4, "11 - 15 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 5, "16 - 20 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 6, "21 - 25 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 7, "26 - 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 8, "more than 30 hours a week");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 10, 9, "Prefer not to say");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 11, 1, "Enrolled as a full-time student");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 1, 11, 2, "Enrolled as a part-time student ");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 1, "Academic (college or university)");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 2, "Industry - research and development");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 3, "Industry - production and quality control");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 4, "Government ");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 5, "Self-employed consulting/fee for service");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 6, "Other");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 1, 7, "Prefer not to answer");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 1, "AA - year");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 2, "Baccalaureate - year");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 3, "Masters of Science");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 4, "Ph. D");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 5, "JD");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 6, "MD");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 7, "MBA");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 8, "not applicable ");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 2, 9, "Prefer not to answer");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 3, 1, "default - current year, ability to change to any reasonable year");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 4, 1, "At the computer");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 4, 2, "At the lab bench");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 4, 3, "In the field");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 4, 4, "Other");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 5, 1, "At the computer");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 5, 2, "At the lab bench");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 5, 3, "In the field");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 5, 4, "Other");
+
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 6, 1, "At the computer");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 6, 2, "At the lab bench");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 6, 3, "In the field");
+insert into Possibilities (qtype, survey, QuestionNo, ResponseID, TextPrompt) values(0, 2, 6, 4, "Other");
 
 
 -- survey
