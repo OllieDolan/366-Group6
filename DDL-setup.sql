@@ -69,6 +69,12 @@ create table ProfProfilesVal(
 create table ProfProfiles(
     ProfileID int Primary key
 )
+create table DesProfiles (
+    ProfileID int Primary key,
+    profName char(32),
+    User int,
+    FOREIGN key user REFERENCES Users(UserId)
+)
 
 
 create table OnetProfiles (
@@ -96,14 +102,15 @@ create table SurveyResponse (
     SurvResp int Primary key,
     User int,
     SurveyID int,
-    Discipline char(32),
     FOREIGN KEY (User) REFERENCES Users(UserID)
 )
 
 create table Responses (
     SurvResp int,
+    surveyType int,
     QuestionNo int,
     QValue int,
-    Answer varchar(100),
-    FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp)
+    primary key (survResp, surveyType, QuestionNo),
+    FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp),
+    FOREIGN KEY (surveyType) REFERENCES Survey(SurveyID)
 )
