@@ -115,6 +115,7 @@ create table SurveyResponse (
 create table Responses (
     SurvResp int,
     QuestionNo int,
+    QValue int,
     Answer varchar(100),
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp)
 )
