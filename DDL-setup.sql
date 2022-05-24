@@ -88,6 +88,7 @@ create table OnetProfiles (
 create table OnetJobs (
     Title char(32) Primary key,
     Description varchar(100),
+    Link varchar(100),
     isStem boolean
 );
 
