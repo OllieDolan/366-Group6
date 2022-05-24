@@ -51,37 +51,25 @@ create table charValue(
     charVal int,
     importance int,
     Primary key(profileId, charId),
-    FOREIGN KEY surveyId REFERENCES Survey(SurveyID),
     FOREIGN KEY charId REFERENCES profileChars(Id)
 )
 
 create table UREProfiles(
     ProfileID int Primary key,
-    Characteristics char(32),
-    value float,
-    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID),
-    FOREIGN key Characteristics REFERENCES profileChars(characteristics)
+    Survey int,
+    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID)
 )
-
+create table ProfProfilesVal(
+    profileId int,
+    charId int,
+    val float,
+    primary key (profileId, charId),
+    FOREIGN key profileId REFERENCES ProfProfiles(ProfileID)
+)
 create table ProfProfiles(
-    ProfileID int Primary key,
-    Status char(32),
-    Characteristics char(32),
-    value float,
-    FOREIGN KEY (Survey) REFERENCES SurveyResponse(ID),
-    FOREIGN key Characteristics REFERENCES profileChars(characteristics)
+    ProfileID int Primary key
 )
 
-create table DesProfiles (
-    ProfileID int Primary key,
-    Characteristics char(32),
-    User int,
-    Value int,
-    Importance int,
-    FOREIGN KEY (User) REFERENCES Users(UserID),
-    FOREIGN key Characteristics REFERENCES profileChars(characteristics),
-    FOREIGN key user REFERENCES Users(UserId)
-)
 
 create table OnetProfiles (
     ProfileID int Primary key,
