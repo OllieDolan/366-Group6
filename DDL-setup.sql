@@ -104,15 +104,14 @@ create table SurveyResponse (
     User int,
     SurveyId int,
     FOREIGN KEY (User) REFERENCES Users(UserID)
+    FOREIGN KEY (SurveyId) REFERENCES Survey(SurveyID)
 );
 
 create table Responses (
     SurvResp int,
-    surveyType int,
     QuestionNo int,
     QValue int,
-    primary key (survResp, surveyType, QuestionNo),
+    primary key (survResp,QuestionNo),
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp),
-    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionId),
-    FOREIGN KEY (surveyType) REFERENCES Survey(SurveyID)
+    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionId)
 );
