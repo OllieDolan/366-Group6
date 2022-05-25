@@ -5,7 +5,7 @@ create table User(
 );
 
 -- Profile characteristics table
-create table profileChars(
+create table ProfileChars(
     Id int Primary key,
     dimension varchar(30),
     characteristics varchar(50) UNIQUE,
@@ -40,7 +40,7 @@ create table Possibilities (
     ResponseID int,
     TextPrompt varchar(100),
     Primary key (survey, QuestionNo, ResponseID),
-    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionNo),
+    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionId),
     FOREIGN key (qtype) REFERENCES questionType(Id),
     FOREIGN key (survey) REFERENCES Survey(SurveyID)
 );
@@ -98,7 +98,7 @@ create table SurveyResponse (
     SurvResp int Primary key,
     User int,
     SurveyId int,
-    FOREIGN KEY (User) REFERENCES User(UserID)
+    FOREIGN KEY (User) REFERENCES User(UserID),
     FOREIGN KEY (SurveyId) REFERENCES Survey(SurveyID)
 );
 
