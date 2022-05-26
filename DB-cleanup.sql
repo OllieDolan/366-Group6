@@ -11,6 +11,6 @@ drop table charValue;
 drop table Possibilities;
 drop table Questions;
 drop table questionType;
-drop table profileChars;
+drop table ProfileChars;
 drop table Survey;
 drop table User;
