@@ -23,13 +23,13 @@ create table questionType(
 );
 create table Questions (
     Survey int,
-    QuestionId int Primary Key,
+    QuestionId int,
     question varchar(100),
     qtype int,
     profChar varchar(50),
+    Primary Key (Survey, QuestionId),
     FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
-    FOREIGN key (qtype) REFERENCES questionType(Id),
-    FOREIGN key (profChar) REFERENCES profileChars(characteristics)
+    FOREIGN key (qtype) REFERENCES questionType(Id)
 );
 
 
@@ -40,9 +40,8 @@ create table Possibilities (
     ResponseID int,
     TextPrompt varchar(100),
     Primary key (survey, QuestionNo, ResponseID),
-    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionId),
-    FOREIGN key (qtype) REFERENCES questionType(Id),
-    FOREIGN key (survey) REFERENCES Survey(SurveyID)
+    FOREIGN KEY (survey, QuestionNo) REFERENCES Questions(survey, QuestionId),
+    FOREIGN key (qtype) REFERENCES questionType(Id)
 );
 
 create table charValue(
@@ -51,7 +50,7 @@ create table charValue(
     charVal int,
     importance int,
     Primary key(profileId, charId),
-    FOREIGN KEY (charId) REFERENCES profileChars(Id)
+    FOREIGN KEY (charId) REFERENCES ProfileChars(Id)
 );
 
 create table ProfProfiles(
@@ -104,11 +103,12 @@ create table SurveyResponse (
 
 create table Responses (
     SurvResp int,
+    surveyType int,
     QuestionNo int,
     QValue int,
     primary key (survResp,QuestionNo),
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp),
-    FOREIGN KEY (QuestionNo) REFERENCES Questions(QuestionId)
+    FOREIGN KEY (surveyType, QuestionNo) REFERENCES Questions(Survey, QuestionId)
 );
 create table UREProfiles(
     ProfileID int Primary key,
