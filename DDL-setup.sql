@@ -53,18 +53,6 @@ create table charValue(
     FOREIGN KEY (charId) REFERENCES ProfileChars(Id)
 );
 
-create table ProfProfiles(
-    ProfileID int Primary key
-);
-create table ProfProfilesVal(
-    profileId int,
-    charId int,
-    val float,
-    primary key (profileId, charId),
-    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
-);
-
-
 create table DesProfiles (
     ProfileID int Primary key,
     profName varchar(32),
@@ -110,8 +98,34 @@ create table Responses (
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp),
     FOREIGN KEY (surveyType, QuestionNo) REFERENCES Questions(Survey, QuestionId)
 );
+
 create table UREProfiles(
     ProfileID int Primary key,
-    Survey int,
-    FOREIGN KEY (Survey) REFERENCES SurveyResponse(SurvResp)
+    UserID int,
+    SurveyID int,
+    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+create table UREProfilesVal(
+    profileId int,
+    charId int,
+    val float,
+    primary key (profileId, charId),
+    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
+);
+
+create table ProfProfiles(
+    ProfileID int Primary key,
+    UserID int,
+    SurveyID int,
+    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+create table ProfProfilesVal(
+    profileId int,
+    charId int,
+    val float,
+    primary key (profileId, charId),
+    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
 );
