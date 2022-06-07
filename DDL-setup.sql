@@ -129,3 +129,23 @@ create table ProfProfilesVal(
     primary key (profileId, charId),
     FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
 );
+
+create table DesiredProfilesMatch(
+    profileId int,
+    ranking Int,
+    Title char(32),
+    Similarity float,
+    primary key (profileId, ranking),
+    FOREIGN KEY (profileId) REFERENCES DesProfiles(ProfileId),
+    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+);
+
+create table UREProfilesMatch(
+    profileId int,
+    ranking Int,
+    Title char(32),
+    Similarity float,
+    primary key (profileId, ranking),
+    FOREIGN KEY (profileId) REFERENCES UREProfiles(ProfileID),
+    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+);
