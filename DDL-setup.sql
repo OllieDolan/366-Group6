@@ -5,7 +5,7 @@ create table User(
 );
 
 -- Profile characteristics table
-create table ProfileChars(
+create table profileChars(
     Id int Primary key,
     dimension varchar(30),
     characteristics varchar(50) UNIQUE,
@@ -22,14 +22,14 @@ create table questionType(
     Id int Primary key
 );
 create table Questions (
-    Survey int,
     QuestionId int,
+    Survey int,
     question varchar(100),
     qtype int,
     profChar varchar(50),
-    Primary Key (Survey, QuestionId),
+    Primary Key (QuestionId, Survey),
     FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
-    FOREIGN key (qtype) REFERENCES questionType(Id)
+    FOREIGN KEY (qtype) REFERENCES questionType(Id)
 );
 
 
@@ -39,9 +39,9 @@ create table Possibilities (
     QuestionNo int,
     ResponseID int,
     TextPrompt varchar(100),
-    Primary key (survey, QuestionNo, ResponseID),
-    FOREIGN KEY (survey, QuestionNo) REFERENCES Questions(survey, QuestionId),
-    FOREIGN key (qtype) REFERENCES questionType(Id)
+    Primary KEY (survey, QuestionNo, ResponseID),
+    FOREIGN KEY (qtype) REFERENCES questionType(Id),
+    FOREIGN KEY (survey) REFERENCES Survey(SurveyID)
 );
 
 create table charValue(
@@ -50,8 +50,25 @@ create table charValue(
     charVal int,
     importance int,
     Primary key(profileId, charId),
-    FOREIGN KEY (charId) REFERENCES ProfileChars(Id)
+    FOREIGN KEY (charId) REFERENCES profileChars(Id)
 );
+
+
+create table ProfProfiles(
+    ProfileID int Primary key,
+    UserID int,
+    SurveyID int,
+    FOREIGN KEY (SurveyID) REFERENCES Survey(SurveyID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+create table ProfProfilesVal(
+    profileId int,
+    charId int,
+    val float,
+    primary key (profileId, charId),
+    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
+);
+
 
 create table DesProfiles (
     ProfileID int Primary key,
@@ -66,19 +83,11 @@ create table OnetProfiles (
     Discipline varchar(100)
 );
 
-create table OnetJobs (
-    Title char(128) Primary key,
+create table ONetJobs (
+    Title varchar(50) Primary key,
     Description varchar(100),
     Link varchar(100),
     isStem boolean
-);
-
-create table OnetData (
-    Title char(32),
-    Education char(64),
-    Training char(64),
-    SVP int,
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
 );
 
 create table SurveyResponse (
@@ -86,7 +95,7 @@ create table SurveyResponse (
     User int,
     SurveyId int,
     FOREIGN KEY (User) REFERENCES User(UserID),
-    FOREIGN KEY (SurveyId) REFERENCES Survey(SurveyID)
+    FOREIGN KEY (SurveyID) REFERENCES Survey(SurveyID)
 );
 
 create table Responses (
@@ -94,77 +103,55 @@ create table Responses (
     surveyType int,
     QuestionNo int,
     QValue int,
-    primary key (survResp,QuestionNo),
+    primary key (survResp, QuestionNo),
     FOREIGN KEY (SurvResp) REFERENCES SurveyResponse(SurvResp),
     FOREIGN KEY (surveyType, QuestionNo) REFERENCES Questions(Survey, QuestionId)
 );
-
 create table UREProfiles(
     ProfileID int Primary key,
     UserID int,
     SurveyID int,
-    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
+    FOREIGN KEY (SurveyID) REFERENCES Survey(SurveyID),
     FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
-
-create table UREProfilesVal(
+create table UREProfilesval(
     profileId int,
     charId int,
     val float,
     primary key (profileId, charId),
-    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
+    FOREIGN key (profileId) REFERENCES UREProfiles(ProfileID)
 );
 
-create table ProfProfiles(
-    ProfileID int Primary key,
-    UserID int,
-    SurveyID int,
-    FOREIGN KEY (Survey) REFERENCES Survey(SurveyID),
-    FOREIGN KEY (UserID) REFERENCES User(UserID)
-);
-create table ProfProfilesVal(
-    profileId int,
+create table ONetJobChars(
+    Title varchar(60),
     charId int,
-    val float,
-    primary key (profileId, charId),
-    FOREIGN key (profileId) REFERENCES ProfProfiles(ProfileID)
+    val int,
+    primary key (Title, charId),
+    foreign key (charId) references profileChars(Id)
 );
 
 create table DesiredProfilesMatch(
     profileId int,
     ranking Int,
-    Title char(32),
+    Title varchar(50),
     Similarity float,
     primary key (profileId, ranking),
-    FOREIGN KEY (profileId) REFERENCES DesProfiles(ProfileId),
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+    FOREIGN KEY (profileId) REFERENCES DesProfiles(ProfileId)
 );
 
 create table UREProfilesMatch(
     profileId int,
     ranking Int,
-    Title char(32),
+    Title varchar(50),
     Similarity float,
     primary key (profileId, ranking),
-    FOREIGN KEY (profileId) REFERENCES UREProfiles(ProfileID),
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+    FOREIGN KEY (profileId) REFERENCES UREProfiles(ProfileID)
 );
-
 create table ProfProfilesMatch(
     profileId int,
     ranking Int,
     Title char(32),
     Similarity float,
     primary key (profileId, ranking),
-    FOREIGN KEY (profileId) REFERENCES ProfProfiles(ProfileID),
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
-);
-
-create table ONetJobChars(
-    Title char(128),
-    charId int,
-    val int,
-    primary key (Title, charId),
-    foreign key (Title) references OnetJobs(Title),
-    foreign key (charId) references ProfileChars(Id)
+    FOREIGN KEY (profileId) REFERENCES ProfProfiles(ProfileID)
 );
