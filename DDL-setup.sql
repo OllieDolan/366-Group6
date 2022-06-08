@@ -149,3 +149,12 @@ create table UREProfilesMatch(
     FOREIGN KEY (profileId) REFERENCES UREProfiles(ProfileID),
     FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
 );
+
+create table ONetJobChars(
+    Title char(32),
+    charId int,
+    val int,
+    primary key (Title, charId),
+    foreign key (Title) references OnetJobs(Title),
+    foreign key (charId) references ProfileChars(Id)
+);
