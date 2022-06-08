@@ -82,7 +82,9 @@ with open('Match-Preference-Profile.sql', 'w') as f:
         sortedsimilaritys = sorted(similaritys)
         sortedJobs = [x for _, x in sorted(zip(similaritys, comparisonJobs))]
         for x in range(10):
-            print("profId: " + str(profId) + ", Ranking: " + str(x) + ", Job: " + str(sortedJobs[x]) + ", Similarity: " + str(sortedsimilaritys[x]))
+            #print("profId: " + str(profId) + ", Ranking: " + str(x) + ", Job: " + str(sortedJobs[x]) + ", Similarity: " + str(sortedsimilaritys[x]))
+            print("INSERT INTO DesiredProfilesMatch (profileId, ranking, Title, Similarity) VALUES (" + str(profId) + ", " + str(x) + ", \"" + str(sortedJobs[x]) + "\", " + str(sortedsimilaritys[x]) + ");")
+
 
 
 
