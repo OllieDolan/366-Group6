@@ -67,7 +67,7 @@ create table OnetProfiles (
 );
 
 create table OnetJobs (
-    Title char(32) Primary key,
+    Title varchar(50) Primary key,
     Description varchar(100),
     Link varchar(100),
     isStem boolean
@@ -133,21 +133,21 @@ create table ProfProfilesVal(
 create table DesiredProfilesMatch(
     profileId int,
     ranking Int,
-    Title char(32),
+    Title varchar(50),
     Similarity float,
     primary key (profileId, ranking),
     FOREIGN KEY (profileId) REFERENCES DesProfiles(ProfileId),
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+    -- FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
 );
 
 create table UREProfilesMatch(
     profileId int,
     ranking Int,
-    Title char(32),
+    Title varchar(50),
     Similarity float,
     primary key (profileId, ranking),
     FOREIGN KEY (profileId) REFERENCES UREProfiles(ProfileID),
-    FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
+    -- FOREIGN KEY (Title) REFERENCES OnetJobs(Title)
 );
 
 create table ONetJobChars(
