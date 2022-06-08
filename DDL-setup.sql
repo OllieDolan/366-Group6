@@ -16,7 +16,8 @@ create table Survey (
     SurveyID int Primary Key,
     shortName varchar(30),
     name varchar(60),
-    Description varchar(150)
+    Description varchar(150),
+    Status bool
 );
 create table questionType(
     Id int Primary key
@@ -94,6 +95,7 @@ create table SurveyResponse (
     SurvResp int Primary key,
     User int,
     SurveyId int,
+    Status bool,
     FOREIGN KEY (User) REFERENCES User(UserID),
     FOREIGN KEY (SurveyID) REFERENCES Survey(SurveyID)
 );
